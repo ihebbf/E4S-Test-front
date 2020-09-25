@@ -1,0 +1,84 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mt-5 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Affectation des notes</h1>
+
+</div>
+
+
+<br>
+
+<!--afficher les offres d'emploi-->
+
+
+
+<!--Ajouter une offre d'emploi-->
+<div >
+
+  <div class="row mb-3">
+    <div class="col-sm-8">
+     <!-- <div *ngIf="errorAdd" class="form-label-group">
+        <div  class="alert alert-danger" role="alert">Veuillez remplir tous les champs</div>
+      </div>-->
+      <form    role="form" >
+
+
+      <!--  <div class="form-group has-warning">
+          <label for="inputEmail" class="is-required">Description</label>
+          <textarea  class="form-control" id="inputEmail"  required="" name="description" [(ngModel)]="this.offre.description"></textarea>
+        </div>
+        <div class="form-group">
+          <label  class="is-required">Skills</label>
+          <ejs-multiselect id='localData' name='name'  #local='ngModel' [(value)]='value'[(ngModel)]='value' [dataSource]='skills' [fields]='localFields' [placeholder]='localWaterMark'></ejs-multiselect>
+
+
+        </div>-->
+
+
+        <div class="form-group ">
+          <label for="classe" class="is-required">Choisir Classes</label>
+
+          <select class="custom-select" name="classe" id="classe" (change)="setReplyTypeValue()" [(ngModel)]="this.classe" >
+            <option value="" disabled selected>Veuillez choisir un classe</option>
+            <option value="{{classe}}" *ngFor="let classe of classes">{{classe}}</option>
+          </select>
+        </div>
+
+
+        <div class="form-group " *ngIf="show">
+          <label for="etudiant" class="is-required">Etudiant</label>
+
+          <select class="custom-select" name="etudiant" id="etudiant" (change)=onChangeEtudiant() [(ngModel)]="this.etudiant">
+            <option value="" disabled selected>Veuillez choisir une equipe</option>
+            <option value="{{etudiant._id}}" *ngFor="let etudiant of etudiants">{{etudiant.email}}</option>
+          </select>
+        </div>
+
+
+        <div class="form-group " *ngIf="showEtudiant">
+          <label for="matiere" class="is-required">Matieres</label>
+
+          <select class="custom-select" name="etudiant" id="matiere"  [(ngModel)]="this.matiere" (change)=onChangeMatiere()>
+            <option value="" disabled selected>Veuillez choisir une equipe</option>
+            <option value="{{matiere._id}}" *ngFor="let matiere of matieres">{{matiere.nom}}</option>
+          </select>
+        </div>
+
+        <div *ngIf="showNote" class="form-group has-warning">
+          <label for="note" class="is-required">Note</label>
+          <input  type="number" class="form-control" id="note"  required="" name="note" [(ngModel)]="this.note"/>
+        </div>
+
+
+
+        <div class="btn-toolbar  ">
+
+          <button type="submit" name="submit" class="btn btn-primary " (click)="AjoutNote()">Ajouter note</button>
+        </div>
+      </form>
+    </div>
+  </div></div>
+
+<!--Modifier une offre d'emploi-->
+
+
+
+

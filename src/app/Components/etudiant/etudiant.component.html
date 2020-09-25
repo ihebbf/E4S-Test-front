@@ -1,0 +1,65 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mt-5 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Affichage des notes</h1>
+
+</div>
+<div *ngIf="moyenne>10" class="alert alert-success" role="alert">
+  <span class="alert-icon"><span class="sr-only">Success</span></span>
+  <div>
+    <h4 class="alert-heading">Moyenne Générale: {{moyenne}}</h4>
+  </div>
+</div>
+<div *ngIf="moyenne<10" class="alert alert-danger" role="alert">
+  <span class="alert-icon"><span class="sr-only">Success</span></span>
+  <div>
+    <h4 class="alert-heading">Moyenne Générale: {{moyenne}}</h4>
+  </div>
+</div>
+
+  <br>
+  <div class="table-responsive" id="scrollMe">
+    <table id="news-table" class="table tablesorter mb-5 tablesorter-default tablesorterebe97d3cffd22" role="grid" aria-labelledby="tablesorterebe97d3cffd22caption">
+      <caption id="tablesorterebe97d3cffd22caption">
+
+      </caption>
+
+      <thead class="cf">
+      <tr role="row" class="tablesorter-headerRow">
+        <th scope="col" class="header tablesorter-header " data-column="1" tabindex="0" role="columnheader" aria-disabled="true" aria-controls="news-table"  aria-sort="none" aria-label="Title: No sort applied, activate to apply an ascending sort" style="user-select: none;"><div class="tablesorter-header-inner"><span>Matiere</span></div></th>
+
+        <th scope="col" class="header  " data-column="3" tabindex="0" role="columnheader" aria-disabled="true" aria-controls="news-table"  aria-label="Category: No sort applied, activate to apply an ascending sort" style="user-select: none;"><span>Coefficient</span>
+        <th scope="col" class="header tablesorter-header " data-column="2" tabindex="0" role="columnheader" aria-disabled="true" aria-controls="news-table"  aria-sort="none" aria-label="Date: No sort applied, activate to apply an ascending sort" style="user-select: none;"><div class="tablesorter-header-inner"><span>Note </span></div></th>
+
+      </tr>
+      </thead>
+      <tbody aria-live="polite" aria-relevant="all">
+      <tbody aria-live="polite" aria-relevant="all">
+
+
+      <tr role="row" *ngFor="let matiere of matieres">
+
+
+
+
+        <td class="align-middle">{{matiere.nom}}</td>
+        <td class="align-middle">{{matiere.coefficient}}</td>
+        <td class="align-middle">{{matiere.note}}</td>
+
+
+
+
+      </tr>
+      </tbody>
+
+    </table>
+<div *ngFor="let matiere of matieres">
+  <div *ngIf="matiere.note<10" class="alert alert-danger" role="alert">
+    <span class="alert-icon"><span class="sr-only">Success</span></span>
+    <div>
+      <h4 class="alert-heading">vous devriez travailler de plus pour améliorer vos competences dans la matiere {{matiere.nom}}</h4>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
